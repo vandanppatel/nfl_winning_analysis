@@ -1,27 +1,18 @@
 #### Preamble ####
-# Purpose: Download and save NFL play-by-play data for specified seasons
-# Author: [Your Name]
-# Date: [Current Date]
-# Contact: [Your Email]
+# Purpose: Download and save NFL play-by-play data for the 2023 season
+# Author: Vandan Patel
+# Date: December 3, 2024
+# Contact: vandanp.patel@mail.utoronto.ca
 # License: MIT
-# Pre-requisites: None
-# Any other information needed? None
+# Pre-requisites: Install nflfastR package
 
 #### Workspace setup ####
-# Load the packages
+# Load required libraries
 library(nflfastR)
 library(tidyverse)
 
-#### Define seasons of interest ####
-seasons <- 2019:2023
+#### Download play-by-play data for 2023 ####
+pbp_data_2023 <- load_pbp(2023)
 
-#### Download play-by-play data ####
-pbp_data <- load_pbp(seasons)
-
-# Save the play-by-play data
-write_csv(pbp_data, "data/01-raw_data/pbp_data.csv")
-
-#### Verify data ####
-# View the first few rows of the data
-head(pbp_data)
-
+# Save the 2023 play-by-play data
+write_csv(pbp_data_2023, "data/01-raw_data/pbp_data_2023.csv")
